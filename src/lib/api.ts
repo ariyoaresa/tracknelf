@@ -18,6 +18,16 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
     headers,
   })
 
+  if (response.status === 401) {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('nelf_token')
+      localStorage.removeItem('nelf_user')
+      localStorage.removeItem('nelf_onboarding')
+      window.location.href = '/login?expired=true'
+    }
+    throw new Error('Session expired')
+  }
+
   let data
   try {
     data = await response.json()

@@ -29,7 +29,7 @@ export const parseLevel = (levelStr: string): number => {
 export const getGraduationYear = (currentLevel: number, courseDuration: number) => {
   const currentYear = getYear(new Date())
   const yearsRemaining = courseDuration - currentLevel
-  return currentYear + yearsRemaining
+  return currentYear + yearsRemaining + 1
 }
 
 export const getRepaymentYear = (graduationYear: number) => {

@@ -20,7 +20,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="font-sans bg-gray-50 text-gray-900 antialiased">
+      <body className="font-sans antialiased">
         <QueryProvider>
           <AuthProvider>
             {children}

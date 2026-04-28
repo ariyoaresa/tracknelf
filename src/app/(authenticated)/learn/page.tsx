@@ -39,27 +39,27 @@ export default function Learn() {
       <div className="max-w-2xl mx-auto space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
         <button 
           onClick={() => setSelectedArticle(null)}
-          className="flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-emerald-600 transition-colors"
+          className="flex items-center gap-2 text-slate-400 dark:text-[var(--sea-ink-soft)] font-bold text-xs uppercase tracking-widest hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Library
         </button>
 
-        <article className="bg-white border border-slate-100 rounded-[2.5rem] p-8 sm:p-12 shadow-sm space-y-6">
+        <article className="bg-white dark:bg-[var(--bg-base)] border border-slate-100 dark:border-[var(--line)] rounded-[2.5rem] p-8 sm:p-12 shadow-sm space-y-6">
           <div className="space-y-4">
-            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full uppercase tracking-[0.2em]">
+            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full uppercase tracking-[0.2em]">
               {selectedArticle.category}
             </span>
-            <h1 className="text-3xl font-bold text-slate-900 leading-tight tracking-tight">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
               {selectedArticle.title}
             </h1>
           </div>
           
-          <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed font-medium">
+          <div className="prose prose-slate max-w-none text-slate-600 dark:text-[var(--sea-ink-soft)] leading-relaxed font-medium">
             {selectedArticle.content}
             <p className="mt-6">For more official details, always consult the NELFUND Student Portal guidelines.</p>
           </div>
 
-          <div className="pt-8 border-t border-slate-50 flex items-center justify-between">
+          <div className="pt-8 border-t border-slate-50 dark:border-[var(--line)] flex items-center justify-between">
             <button 
               onClick={() => {
                 const url = `https://wa.me/?text=${encodeURIComponent(`Check out this article on Traknelf: ${selectedArticle.title}`)}`
@@ -73,7 +73,7 @@ export default function Learn() {
             <a 
               href="https://nelf.gov.ng" 
               target="_blank" 
-              className="flex items-center gap-2 text-slate-400 hover:text-slate-900 transition-colors text-sm font-bold"
+              className="flex items-center gap-2 text-slate-400 dark:text-[var(--sea-ink-soft)] hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-bold"
             >
               Portal <ExternalLink className="w-4 h-4" />
             </a>
@@ -86,17 +86,17 @@ export default function Learn() {
   return (
     <div className="space-y-12 max-w-4xl mx-auto pb-20">
       <header className="text-center space-y-4">
-        <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mx-auto mb-6">
+        <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 mx-auto mb-6">
           <BookOpen className="w-8 h-8" />
         </div>
-        <h1 className="text-4xl font-bold text-slate-900 tracking-tight">Knowledge Base</h1>
-        <p className="text-slate-500 max-w-md mx-auto">Everything you need to know about navigating your student loan journey.</p>
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Knowledge Base</h1>
+        <p className="text-slate-500 dark:text-[var(--sea-ink-soft)] max-w-md mx-auto">Everything you need to know about navigating your student loan journey.</p>
       </header>
 
       <div className="space-y-16">
         {categories.map(cat => (
           <section key={cat} className="space-y-6">
-            <h2 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] px-1 border-b border-slate-50 pb-4">
+            <h2 className="text-xs font-bold text-slate-400 dark:text-[var(--sea-ink-soft)] uppercase tracking-[0.2em] px-1 border-b border-slate-50 dark:border-[var(--line)] pb-4">
               {cat}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -104,12 +104,12 @@ export default function Learn() {
                 <button 
                   key={article.id}
                   onClick={() => setSelectedArticle(article)}
-                  className="group p-6 bg-white border border-slate-100 rounded-3xl text-left hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-50 transition-all duration-300"
+                  className="group p-6 bg-white dark:bg-[var(--bg-base)] border border-slate-100 dark:border-[var(--line)] rounded-3xl text-left hover:border-emerald-200 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-50 dark:hover:shadow-emerald-900/20 transition-all duration-300"
                 >
-                  <h3 className="font-bold text-slate-800 group-hover:text-emerald-700 transition-colors leading-snug">
+                  <h3 className="font-bold text-slate-800 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                     {article.title}
                   </h3>
-                  <div className="mt-4 flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <div className="mt-4 flex items-center justify-between text-[10px] font-bold text-slate-400 dark:text-[var(--sea-ink-soft)] uppercase tracking-widest">
                     <span>Read Article</span>
                     <Share2 className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>

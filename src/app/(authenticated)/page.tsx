@@ -88,7 +88,7 @@ export default function Dashboard() {
       {/* Header & Greeting */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tighter">{greeting}, {user?.first_name}!</h1>
+          <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">{greeting}, {user?.first_name}!</h1>
           <div className="flex items-center gap-2 mt-1">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
@@ -98,7 +98,7 @@ export default function Dashboard() {
         </div>
         <button 
           onClick={fetchData}
-          className="p-3 rounded-2xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg hover:shadow-emerald-50 transition-all active:scale-90"
+          className="p-3 rounded-2xl bg-white dark:bg-[var(--chip-bg)] border border-slate-100 dark:border-[var(--chip-line)] text-slate-400 hover:text-emerald-600 dark:hover:text-[var(--lagoon)] hover:border-emerald-100 dark:hover:border-[var(--lagoon)] hover:shadow-lg hover:shadow-emerald-50 dark:hover:shadow-none transition-all active:scale-90"
         >
           <RefreshCw className="w-5 h-5" />
         </button>
@@ -148,7 +148,7 @@ export default function Dashboard() {
 
       {/* Navigation Hub */}
       <div className="space-y-6">
-        <h3 className="font-bold text-slate-800 tracking-tight text-lg ml-1">Explore Services</h3>
+        <h3 className="font-bold text-slate-800 dark:text-white tracking-tight text-lg ml-1">Explore Services</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <QuickLink 
             href="/loans" 
@@ -177,13 +177,13 @@ export default function Dashboard() {
 
 function QuickLink({ href, label, sub, icon }: { href: string, label: string, sub: string, icon: React.ReactNode }) {
   return (
-    <Link href={href} className="group p-6 bg-white border border-slate-100 rounded-[2rem] hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-50/50 transition-all duration-300 flex flex-col gap-4">
-      <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-emerald-50 transition-colors">
+    <Link href={href} className="group p-6 bg-white dark:bg-[var(--sand)] border border-slate-100 dark:border-[var(--line)] rounded-[2rem] hover:border-emerald-200 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-50/50 dark:hover:shadow-none transition-all duration-300 flex flex-col gap-4">
+      <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-[var(--bg-base)] flex items-center justify-center group-hover:bg-emerald-50 dark:group-hover:bg-[var(--link-bg-hover)] transition-colors">
         {icon}
       </div>
       <div>
-        <h4 className="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors tracking-tight">{label}</h4>
-        <p className="text-xs text-slate-400 font-medium">{sub}</p>
+        <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-[var(--lagoon)] transition-colors tracking-tight">{label}</h4>
+        <p className="text-xs text-slate-400 dark:text-[var(--sea-ink-soft)] font-medium">{sub}</p>
       </div>
     </Link>
   )
@@ -191,13 +191,13 @@ function QuickLink({ href, label, sub, icon }: { href: string, label: string, su
 
 function MiniStat({ label, value, sub, variant = 'slate', cta }: { label: string, value: string, sub: string, variant?: 'emerald' | 'red' | 'slate', cta?: React.ReactNode }) {
   const colors = {
-    emerald: 'text-emerald-600',
-    red: 'text-red-500',
-    slate: 'text-slate-800'
+    emerald: 'text-emerald-600 dark:text-emerald-400',
+    red: 'text-red-500 dark:text-red-400',
+    slate: 'text-slate-800 dark:text-white'
   }
 
   return (
-    <div className="bg-white border border-slate-100 rounded-3xl p-5 flex flex-col justify-between h-32 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+    <div className="bg-white dark:bg-[var(--sand)] border border-slate-100 dark:border-[var(--line)] rounded-3xl p-5 flex flex-col justify-between h-32 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
       <div className="flex justify-between items-start">
         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]">{label}</span>
         {cta}

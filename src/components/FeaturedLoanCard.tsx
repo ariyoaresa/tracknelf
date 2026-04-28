@@ -22,15 +22,15 @@ export function FeaturedLoanCard({ disbursed, approved, institution, repaymentDa
   }
 
   return (
-    <div className="bg-[#E7F7F2] border border-[#D5EFE7] rounded-3xl p-6 shadow-sm overflow-hidden relative">
+    <div className="bg-[#E7F7F2] dark:bg-[var(--surface-strong)] border border-[#D5EFE7] dark:border-[var(--line)] rounded-3xl p-6 shadow-sm overflow-hidden relative">
       <div className="relative z-10">
-        <h3 className="text-emerald-700 font-bold text-xs uppercase tracking-wider mb-2">
+        <h3 className="text-emerald-700 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">
           Disbursed to Institution
         </h3>
-        <h2 className="text-4xl font-bold text-slate-800 mb-1">
+        <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-1">
           {formatter.format(disbursed).replace('NGN', '₦')}
         </h2>
-        <p className="text-emerald-600/80 text-sm font-medium mb-6">
+        <p className="text-emerald-600/80 dark:text-emerald-400/80 text-sm font-medium mb-6">
           {institution} · {tranches} tranches
         </p>
 
@@ -42,7 +42,7 @@ export function FeaturedLoanCard({ disbursed, approved, institution, repaymentDa
               style={{ width: `${percent}%` }}
             />
           </div>
-          <div className="flex justify-between text-[10px] font-bold text-emerald-800/60 uppercase tracking-tighter">
+          <div className="flex justify-between text-[10px] font-bold text-emerald-800/60 dark:text-emerald-400/80 uppercase tracking-tighter">
             <span>₦{Math.round(disbursed/1000)}k disbursed</span>
             <span>₦{Math.round(Math.max(approved, disbursed)/1000)}k approved</span>
           </div>
@@ -52,7 +52,7 @@ export function FeaturedLoanCard({ disbursed, approved, institution, repaymentDa
           <span className={`px-3 py-1 border text-[10px] font-bold rounded-full uppercase ${riskColors[riskLevel] || riskColors.Low}`}>
             {riskLevel} risk
           </span>
-          <span className="text-emerald-700 font-bold text-[11px]">
+          <span className="text-emerald-700 dark:text-emerald-400 font-bold text-[11px]">
             {repaymentDays <= 0 ? 'Repayment started' : `Repayment in ${repaymentDays} days`}
           </span>
         </div>
